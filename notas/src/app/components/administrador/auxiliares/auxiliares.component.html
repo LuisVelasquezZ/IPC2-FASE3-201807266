@@ -1,0 +1,45 @@
+
+    <h1 class="display-4  font-weight-bold">Auxiliares</h1>
+
+   <!--<input type="text" id="myInput" onkeyup="myFunction()" placeholder="buscar por  e-mail">-->
+   <div class="col-auto">
+      <label class="sr-only" for="myInput">Correo</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="material-icons ">search</i></div>
+        </div>
+        <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Buscar por e-mail">
+      </div>
+    </div> 
+   
+  <hr class="my-4">
+  
+  <div class="row">
+      <table class="table table-striped " id="myTable">
+          <thead class="bg-info">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Carnet</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let usuario of usuarios">
+              <th scope="row">{{usuario.idUsuario}}</th>
+              <td>{{usuario.nombre}}</td>
+              <td>{{usuario.correo}}</td>
+              <td>{{usuario.carnet}}</td>
+              <td>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <button type="button" class="btn btn-outline-secondary" [routerLink]="['/administrador/auxiliares', usuario.idUsuario]">Secciones</button>
+                    </div>
+                  
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+
+  

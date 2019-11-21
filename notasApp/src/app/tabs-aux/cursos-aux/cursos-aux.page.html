@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Secciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let curso of secciones">
+        <ion-card-header>
+          <ion-card-subtitle>Curso: {{curso.curso}}</ion-card-subtitle>
+          <ion-card-title>Seccion: {{curso.nombre}} </ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+            <p>Horario: </p>
+            <p>De: {{curso.horaInicio}} A: {{curso.horaFin}}</p>
+            <p>Semestre: {{curso.semestre}} </p>
+            <p>Año: {{curso.anio}}</p>
+            <ion-button type="button" class="btn btn-outline-info" [routerLink]="['/tabs-aux/foros', curso.idSeccion]">Foros</ion-button>
+              <ion-button type="button" class="btn btn-outline-success" [routerLink]="['/auxiliar/alumnos', curso.idSeccion]">Alumnos</ion-button>
+              <ion-button type="button" class="btn btn-outline-secondary" [routerLink]="['/tabs-aux/actividades', curso.idSeccion]">Actividades</ion-button>
+              <ion-button type="button" class="btn btn-outline-secondary" [routerLink]="['/tabs-aux/evaluaciones', curso.idSeccion]">Evaluaciones</ion-button>
+          
+        </ion-card-content>
+      </ion-card>
+</ion-content>

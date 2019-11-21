@@ -1,0 +1,56 @@
+<div style="height: 10px;"></div>
+<div class="container">
+  <div class="row">
+    <button type="button" class="btn btn-outline-success"
+      [routerLink]="['/auxiliar/publicacion', 'nuevo-'+uri]">Agregar</button>
+  </div>
+</div>
+
+<hr class="my-4">
+<ul class="list-group">
+  <li class="list-group-item bg-dark" *ngFor="let foro of foros">
+    <div class="card">
+      <div class="card-header">
+        Autor: {{foro.autor}}
+        <br>
+        <small>
+          <cite title="Source Title">Fecha: {{foro.fecha}}</cite>
+        </small>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{foro.titulo}}</h5>
+        <p class="card-text">{{foro.contenido}}</p>
+        <p>
+          <button type="button" class="btn btn-outline-success"
+            (click)="getComentarios(foro.idPublicacion)">Comentarios</button>
+
+        </p>
+        <div *ngIf="getId(foro.idPublicacion)">
+          <div class="card card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let comentario of comentarios">
+                  {{comentario.autor}}:
+                      <p> {{comentario.contenido}}</p>
+                      <footer class="blockquote-footer">{{comentario.fecha}}</footer>
+                    
+                 </li>
+              <li class="list-group-item">
+                <form [formGroup]="comentarioForm" (ngSubmit)="agregarComentario(foro.idPublicacion)">
+                  <div class="form-group">
+                    <label for="contenido">Comentario</label>
+                    <textarea class="form-control" placeholder="Agrega un comentario" id="contenido" rows="3" formControlName="contenido"></textarea>
+                  </div>
+                  <div class="row justify-content-md-center">
+                    <button type="submit" class="btn btn-outline-secondary">Comentar
+                      <i class="material-icons right">how_to_reg</i>
+                    </button>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

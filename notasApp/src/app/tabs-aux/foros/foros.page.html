@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>foros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-button type="button" class="btn btn-outline-success" [routerLink]="['/auxiliar/publicacion', 'nuevo-'+uri]">
+      Agregar</ion-button>
+  </ion-item>
+  <ion-item class="list-group-item bg-dark" *ngFor="let foro of foros">
+    <ion-card class="card">
+      <ion-card-header class="card-header">
+        <ion-card-subtitle>Fecha: {{foro.fecha}}</ion-card-subtitle>
+        <ion-card-title>Autor: {{foro.autor}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="card-body">
+        <h5 class="card-title">{{foro.titulo}}</h5>
+        <p class="card-text">{{foro.contenido}}</p>
+        <p>
+          <ion-button type="button" class="btn btn-outline-success" (click)="getComentarios(foro.idPublicacion)">
+            Comentarios</ion-button>
+
+        </p>
+        <ion-list *ngIf="getId(foro.idPublicacion)">
+            <ion-card class="list-group-item" *ngFor="let comentario of comentarios">
+              <ion-card-header>
+                  <ion-card-title>
+                      {{comentario.autor}}:
+                  </ion-card-title>
+                    <ion-card-subtitle>
+                      {{comentario.fecha}}
+                    </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                {{comentario.contenido}}
+              </ion-card-content>
+            </ion-card>
+          <ion-item class="list-group-item">
+            <ion-list>
+                <form [formGroup]="comentarioForm" (ngSubmit)="agregarComentario(foro.idPublicacion)">
+                    <ion-item class="form-group">
+                      <ion-label for="contenido">Comentario</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-textarea class="form-control" placeholder="Agrega un comentario" id="contenido" rows="3"
+                        formControlName="contenido"></ion-textarea>
+                    </ion-item>
+                    <ion-item class="row justify-content-md-center">
+                      <ion-button type="submit" class="btn btn-outline-secondary">Comentar
+      
+                      </ion-button>
+                    </ion-item>
+                  </form>
+            </ion-list>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-content>

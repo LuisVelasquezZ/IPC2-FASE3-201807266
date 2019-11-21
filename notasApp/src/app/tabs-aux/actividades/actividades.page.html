@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actividades</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item>
+  <ion-button type="button" class="btn btn-outline-success" [routerLink]="['/tabs-aux/actividades-form', 'nuevo-'+uri]">Agregar</ion-button>
+</ion-item>
+<ion-list>
+  <ion-item *ngFor = "let actividad of actividades">
+    <ion-card>
+      <ion-card-header>
+
+          <ion-card-title>
+              {{actividad.idActividad}}
+          </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-item>{{actividad.nombre}}</ion-item>
+          <ion-item>{{actividad.fecha}}</ion-item>
+          <ion-item>{{actividad.ponderacion}}</ion-item>
+              <ion-item class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <ion-button type="button" class="btn btn-outline-light" (click)="eliminarActividad(actividad.idActividad)">Eliminar</ion-button>
+              <ion-button type="button" class="btn btn-outline-info" [routerLink]="['/tabs-aux/actividades-form', actividad.idActividad]">Editar</ion-button>
+                  
+            </ion-item>  
+          
+          <ion-item>
+            <ion-button type="button" class="btn btn-outline-warning"  [routerLink]="['/auxiliar/calificacion', actividad.idActividad]">Detalles</ion-button>
+          </ion-item>
+      </ion-card-content>
+
+    </ion-card>
+    
+  </ion-item>
+</ion-list>
+</ion-content>

@@ -1,0 +1,41 @@
+
+    <h1 class="display-4  font-weight-bold">Cursos</h1>
+    <div class="container">
+      <div class="row">
+          <button type="button" class="btn btn-outline-success" [routerLink]="['/administrador/cursos', 'nuevo']">Agregar</button>
+          </div>
+  </div>
+  
+  <hr class="my-4">
+  
+  <div class="row">
+      <table class="table table-striped  table-dark ">
+          <thead class="bg-info">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripción</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let curso of cursos">
+              <th scope="row">{{curso.idCurso}}</th>
+              <td>{{curso.nombre}}</td>
+              <td>{{curso.descripion}}</td>
+              <td>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                      <button type="button" class="btn btn-outline-light" (click)="eliminarCurso(curso.idCurso)"><i class="material-icons ">delete</i></button>
+                  <button type="button" class="btn btn-outline-info" [routerLink]="['/administrador/cursos', curso.idCurso]"><i class="material-icons right">edit</i></button>
+                      
+                </div>                              
+              </td>
+              <td>
+                <button type="button" class="btn btn-outline-warning"  [routerLink]="['/administrador/secciones', curso.idCurso]">Secciones</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  

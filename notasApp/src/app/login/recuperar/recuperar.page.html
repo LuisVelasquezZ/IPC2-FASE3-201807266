@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>recuperar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+<ion-note color="secondary">Ingrese su correo para enviar contraseña de recuperación</ion-note>
+    <form [formGroup]="recuperarForm" (ngSubmit)="recuperar()">
+        <ion-item>
+          <ion-label position="floating" for="nombre">Correo</ion-label>
+          <ion-input type="email" class="form-control" id="correo"  formControlName="correo">
+          </ion-input>
+        </ion-item>
+          <ion-button expand="block" type="submit" class="btn btn-outline-secondary ">Enviar
+          </ion-button>
+  
+      </form>
+      
+</ion-content>

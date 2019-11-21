@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>actividades-form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="actividadForm" (ngSubmit)="agregarActividad()">
+        <ion-item class="form-group">
+          <ion-label position="floating" for="nombre">Nombre</ion-label>
+          <ion-input type="text" class="form-control" id="nombre"  formControlName="nombre"></ion-input>
+        </ion-item>
+          <ion-item class="form-group col-sm">
+            <ion-label position="floating" for="carnet">Ponderación</ion-label>
+            <ion-input type="number" class="form-control" id="hioraInicio" formControlName="ponderacion"></ion-input>
+          </ion-item>
+  
+        <ion-item class="row justify-content-md-center">
+          <ion-button type="submit" class="btn btn-outline-secondary">Guardar
+          </ion-button>
+        </ion-item>
+      </form>
+</ion-content>

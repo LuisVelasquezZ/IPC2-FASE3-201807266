@@ -1,0 +1,40 @@
+
+    <h1 class="display-4  font-weight-bold">Usuarios</h1>
+  <div class="container">
+    <div class="row">
+        <button type="button" class="btn btn-outline-success" [routerLink]="['/administrador/usuarios', 'nuevo']">Agregar</button>
+        </div>
+</div>
+
+<hr class="my-4">
+
+<div class="row">
+    <table class="table table-striped ">
+        <thead class="bg-info">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Carnet</th>
+            <th scope="col">Tipo</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let usuario of usuarios">
+            <th scope="row">{{usuario.idUsuario}}</th>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.correo}}</td>
+            <td>{{usuario.carnet}}</td>
+            <td>{{usuario.tipo}}</td>
+            <td>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <button type="button" class="btn btn-outline-dark" (click)="eliminarUsuario(usuario.idUsuario)"><i class="material-icons ">delete</i></button>
+                <button type="button" class="btn btn-outline-secondary" [routerLink]="['/administrador/usuarios', usuario.idUsuario]"><i class="material-icons right">edit</i></button>
+                  </div>
+                
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

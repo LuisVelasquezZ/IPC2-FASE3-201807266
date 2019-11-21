@@ -1,0 +1,38 @@
+
+    <h1 class="display-4  font-weight-bold">Secciones {{curso.nombre}}</h1>
+
+  
+  <hr class="my-4">
+  
+  <div class="row">
+      <table class="table table-striped ">
+          <thead class="bg-info">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Inicio</th>
+              <th scope="col">Fin</th>
+              <th scope="col">Auxiliar</th>
+              <th scope="col">Semestre</th>
+              <th scope="col">Año</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let seccion of secciones">
+              <th scope="row">{{seccion.idSeccion}}</th>
+              <td>{{seccion.nombre}}</td>
+              <td>{{seccion.horaInicio}}</td>
+              <td>{{seccion.horaFin}}</td>
+              <td>{{seccion.auxiliar}}</td>
+              <td>{{seccion.semestre}}</td>
+              <td>{{seccion.anio}}</td>
+              <td>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                      <button type="button" class="btn btn-outline-dark" (click)="agregarAsignacion(seccion.idSeccion)"><i class="material-icons ">check</i></button>  
+                </div>                  
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>

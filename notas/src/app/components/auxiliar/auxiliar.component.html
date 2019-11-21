@@ -1,0 +1,38 @@
+<app-slidenav-admin></app-slidenav-admin>
+<div class="row ">
+    <div class="col-1 bg-dark" style="height: 800px;">
+        <div class="list-group list-group-flush">
+            <div class="row ">
+                <a href="#" [routerLink]="['/auxiliar/cursosAux']" class="list-group-item list-group-item-action bg-dark text-light ">
+                    <div class="container">
+                            <i class="material-icons ">class</i>
+                            <br>
+                            Secciones
+                    </div>
+                    
+                </a>
+            </div>
+            <div class="row ">
+                <a href="#" [routerLink]="['/administrador/auxiliares']" class="list-group-item list-group-item-action bg-dark text-light">
+                    <div class="container">
+                            <i class="material-icons">message</i>
+                            <br>
+                            Mensajes
+                    </div>
+                    
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-11" >
+            <div style="height: 10px;"></div>
+        <div class="container" data-spy="scroll">            
+        <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div>
+
+<!--style="background-image: url('./../../assets/resources/text2.jpg'); background-size: cover;"-->

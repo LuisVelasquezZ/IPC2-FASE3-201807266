@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab One
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <form [formGroup]="loginForm" (ngSubmit)="autenticar()">
+      <ion-item>
+        <ion-label position="floating" for="nombre">Correo</ion-label>
+        <ion-input type="email" class="form-control" id="correo"  formControlName="correo">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating" for="nombre">Contraseña</ion-label>
+        <ion-input type="password" class="form-control" id="pass"  formControlName="pass">
+        </ion-input>
+      </ion-item>
+        <ion-button expand="block" type="submit" class="btn btn-outline-secondary ">Iniciar
+        </ion-button>
+
+    </form>
+    
+<ion-button expand="block" routerLink="/tabsLogin/login/recuperar">Olvide Mi Contraseña</ion-button>
+  
+
+
+</ion-content>

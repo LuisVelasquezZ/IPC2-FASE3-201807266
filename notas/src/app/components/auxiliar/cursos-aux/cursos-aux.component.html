@@ -1,0 +1,26 @@
+<div class="card-columns">
+
+  <div class="card bg-light " *ngFor="let curso of secciones">
+    <blockquote class="blockquote mb-0 card-body">
+      <div class="card-header">
+        <h5 class="card-title">Seccion: {{curso.nombre}} </h5>
+      </div>
+
+      <p>Horario: </p>
+      <p>De: {{curso.horaInicio}} A: {{curso.horaFin}}</p>
+      <p>Semestre: {{curso.semestre}} </p>
+      <p>Año: {{curso.anio}}</p>
+      <footer class="blockquote-footer ">
+        <small>
+          <cite title="Source Title">Curso: {{curso.curso}}</cite>
+        </small>
+      </footer>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+        <button type="button" class="btn btn-outline-info" [routerLink]="['/auxiliar/foros', curso.idSeccion]">Foros</button>
+        <button type="button" class="btn btn-outline-success" [routerLink]="['/auxiliar/alumnos', curso.idSeccion]">Alumnos</button>
+        <button type="button" class="btn btn-outline-secondary" [routerLink]="['/auxiliar/actividades', curso.idSeccion]">Actividades</button>
+      </div>
+    </blockquote>
+  </div>
+</div>
